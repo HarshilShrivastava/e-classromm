@@ -1,0 +1,110 @@
+{% extends 'Base.html' %} {% block content %} {% if ab == True %}
+<br />
+<br />
+<br />
+
+{% endif %}
+<style>
+ .wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+@media (min-width:34em) {
+    .card-deck > .card
+    {
+        width: 29%;
+        flex-wrap: wrap;
+        flex: initial; 
+    }
+}
+  
+</style>
+
+<div class="container">
+<div class="row">
+<div class="col s12 m7">
+
+    <div class="card">
+
+
+        <div class="card-image">
+
+            <img src="{{ qw.image.url }}" />
+            
+          </div>
+          <div class="card-content">
+              <h3 class="text-center">{{ qs1 }}</h3>
+            </div>
+
+            <div class="card-action">
+
+                {% if ab == True %}
+     
+
+                <div class="wrapper">
+
+                <a href="/courses/createAnnounce/{{ qs1 }}"> <button type="submit" class="btn btn-primary">create Anncouncement</button></a>
+              
+              </div>
+              {% endif   %}
+
+      </div>
+      </div>
+
+</div>  
+</div>
+
+
+</div>
+
+
+<br />
+<br />
+
+<br />
+<div class="container">
+  <div class="row">
+    {% for a in qs%}
+    <div class="card-deck-wrapper">
+      <div class="card-deck">
+        <div class="col-sm-5">
+          <div
+            class="card mdb-color lighten-2 text-center z-depth-2 "
+            style="width: 18rem;"
+          >
+            <div class="card-body">
+              <h4 class="card-title">{{ a.title }}</h4>
+              <br />
+
+              <p class="card-text">
+                {{ a.content }} <br />
+                {{ a.at }}
+              </p>
+
+              {{ a.User }}
+
+              <br />
+              <a href="{{ a.get_absolute_url }}" class="btn btn-primary"
+                >View</a
+              >
+              {% if ab == True %}
+
+              <a href="{{ a.delete_url }}" class="btn btn-primary">Delete</a>
+              <a href="#" class="btn btn-primary">Update</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<br />
+<br />
+{% endblock %}

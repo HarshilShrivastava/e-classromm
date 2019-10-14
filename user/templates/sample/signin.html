@@ -1,0 +1,71 @@
+{% extends "Base.html" %}<!---->
+{% load crispy_forms_tags %} {% block content %}
+<br />
+<br />
+<br />
+<style></style>
+{% for message in messages %}
+
+<div class="alert alert-success">
+  <a class="close" href="#" data-dismiss="alert">×</a>
+
+  {{ message }}
+</div>
+{% endfor %}
+<h2 class="text-center text-info">Sign In</h2>
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <div id="login">
+        <form class="form-horizontal" name="LoginForm" method="POST">
+          {% csrf_token %} {% if next %}
+          <input type="hidden" name="next" value="{{ next }}" />
+          {% endif %}
+          <div class="control-group">
+            <label class="control-label" for="username">Username</label>
+            <div class="controls">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+              />
+            </div>
+          </div>
+          <br />
+          <div class="control-group">
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <br />
+
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+{% endblock %}

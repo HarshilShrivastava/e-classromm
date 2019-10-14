@@ -1,0 +1,80 @@
+{% extends "Base.html" %} {% load crispy_forms_tags %}{% block content %}
+<br />
+<br />
+<style>
+  
+  .no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+.border-exam {
+ 
+ border-style:solid;
+ border-color:teal;
+}
+.container {
+    width: 500px;
+    clear: both;
+  }
+
+  .container input {
+    width: 100%;
+    clear: both;
+  }
+</style>
+<div class="container">
+  <div class="row">
+      <div class="col s12 m7">
+          <div class="card">
+  <h4 class="text-center">{{ obj.title }}</h4>
+  <h6 class="text-center">{{ obj.content }}</h6>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="wrapper">
+
+  <button type="submit" class="btn btn-primary">Add Comment</button>
+  </div>
+  
+  
+</div>
+      </div>
+  </div>
+</div>
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button type="submit" class="btn btn-primary">Submit<i class="material-icons right">send</i></button>
+  </form>
+
+  <h4 class="text-center">Comments</h4>
+  {% for com in ar %}
+  <br />
+  <div class="row">
+    <div class="col-sm-9">
+  <div class="border-exam">
+  <p class="text-center">{{ com.text }}<p>
+
+  <h6 class="text-center">by {{ com.by }}</h6>
+  
+  <h6 class="text-center">at {{ com.at }}</h6>
+  </div>
+  </div>
+  </div>
+  {% endfor %}
+</div>
+<br />
+
+{% endblock %}

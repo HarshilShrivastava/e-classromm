@@ -1,0 +1,39 @@
+{% extends "Base.html" %} {% load crispy_forms_tags %} {% block content %}
+<br />
+<br />
+<br />
+<style>
+
+  .content {
+    max-width: 500px;
+    margin-left: 30%;
+    background: white;
+    padding: 10px;
+</style>
+<div class="content" >
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button type="submit" class="btn btn-primary">Add Course</button>
+  </form>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+{% endblock %}

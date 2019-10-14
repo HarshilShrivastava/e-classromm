@@ -1,0 +1,7 @@
+{% if user.is_authenticated %} {% for a in qs %}
+<a href="{{ a.get_absolute_url }}"> {{ a.name }}</a>
+<a href="{{ a.join_url }}">join</a>
+<br />
+{% endfor %} {% else %}
+<h1>please login</h1>
+{% endif %}

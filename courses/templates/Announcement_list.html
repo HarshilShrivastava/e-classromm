@@ -1,0 +1,17 @@
+{% extends "Base.html" %} {% block content %}
+<br>
+<br>
+<br>
+
+{% for query in qs %}
+{{ query.title }}
+<br />
+{{ query.content }}
+
+<a href='{{query.get_absolute_url}}'>view</a>
+  <br />
+  <hr />
+  {% endfor %}
+</a>
+
+{% endblock %}

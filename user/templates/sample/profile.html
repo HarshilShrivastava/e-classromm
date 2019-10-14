@@ -1,0 +1,114 @@
+{% extends "Base.html" %} {% block content %}
+
+<style>
+.img {
+  object-fit:scale-down;
+    
+    width:  100px;
+    height: 100px;
+    
+}
+h5{
+  
+  border-radius: 25px;
+    padding: 10px;
+    color:white;
+    background-color:#4db6ac;
+    border: black 2px solid;  
+}
+
+</style>
+<br />
+<br />
+<br />
+
+
+ <h5 class="text-center">
+  Welcome : {{ user }}
+</h5>
+
+
+
+<h4>Courses created by you <a  href="/courses/add" class="btn-floating btn-large waves-effect waves-light teal lighten-2"><i class="material-icons">add</i></a></h4>
+
+
+<br />
+<div class="container">
+  <div class="row">
+    {% for a in qs %}
+    <div class="col-sm-4">
+      <div class="card-deck">
+        <div
+          class="card mdb-color lighten-2 text-center z-depth-2 view overlay hm-white-slight"
+          style="width: 25rem;"
+        >
+     
+          <img
+            class="card-img-top in responsive-img"
+            
+            src="{{ a.image.url }}"
+            alt="Card image cap"
+          />
+
+          <div class="card-body">
+            <h4 class="card-title">
+              <a>{{ a.name }} </a>
+            </h4>
+            <p class="card-text">on {{ a.created_At }}</p>
+          </div>
+          <a href="{{ a.get_absolute_url }}" class="btn btn-primary"> Manage</a>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br /><br /><br />
+    {% endfor %}
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<hr />
+<h4>
+  Courses joined by you <a  href=" /courses/all"  class="btn-floating btn-large waves-effect waves-light teal lighten-2">JOIN OTHER COURSES</a></h>
+  
+  
+
+  
+  <div class="container">
+    <div class="row">
+      {% for a1 in qs1 %}
+      <div class="col-sm-3">
+        <div class="card-deck">
+          <div
+            class="card mdb-color lighten-2 text-center z-depth-2 view overlay hm-white-slight"
+            style="width: 18rem;"
+          >
+            <img
+              class="card-img-top"
+              img
+              src="{{ a1.image.url }}"
+              alt="Card image cap"
+            />
+
+            <div class="card-body">
+              <h4 class="card-title">
+                <a> {{ a1.name }} </a>
+              </h4>
+              <h6>
+                created by {{ a1.created_by }} <br />on {{ a1.created_At }}
+              </h6>
+            </div>
+            <a href="{{ a1.get_absolute_url }}" class="btn btn-primary"> View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <br />
+  <br />
+  <hr />
+  {% endblock %}
+</h1>

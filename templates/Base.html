@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="img/favicon.png" rel="icon" />
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+      rel="stylesheet"
+    />
+
+    <title>E-Classroom</title>
+  </head>
+  
+  </style>
+  <body>
+    <nav class="teal lighten-2"> 
+        <div class="nav-wrapper">
+        <a class="navbar-brand" href="/">Classroom</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       
+          <ul class="right hide-on-med-and-down">
+           
+            <li class="nav-item">
+                <a class="nav-link" href="/"><i class="large material-icons">home</i></a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/courses/all">COURSES</a>
+            </li>
+            {% if user.is_authenticated %}
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/profile/"><i class="large material-icons">account_circle</i></a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/logout">LOGOUT</a>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/signin">LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/signup">SIGNUP</a>
+            </li>
+             
+            {% endif %}
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>  
+    <br>
+    {% block content %} {% endblock %}
+  
+   <footer class="page-footer teal lighten-2">
+    
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h6 class="white-text">Pages</h5>
+            <ul class="links list-unstyled">
+              <li><a class="white-text" href="/" class="text-muted">About Us</a></li>
+              <li><a class="white-text" href="#" class="text-muted">Contacts</a></li>
+              <li><a class="white-text" href="#" class="text-muted">Features</a></li>
+              <li><a class="white-text" href="#" class="text-muted">Courses</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6>Features</h5>
+            <ul class="links list-unstyled">
+              <li><a class="white-text" href="#" class="text-muted">Teaching Method</a></li>
+              <li><a class="white-text" href="#" class="text-muted">Application</a></li>
+              <li><a class="white-text" href="#" class="text-muted">Future</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    <div class="footer-copyright">
+      <div class="container">
+        
+            <p class="mb-md-0">
+              &copy; 2019 Your company. All rights reserved.
+            </p>
+          </div>
+        </div>
+      
+        
+  </footer>
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  </body>
+</html>
