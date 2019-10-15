@@ -8,24 +8,24 @@
     height: 100px;
     
 }
-h5{
-  
-  border-radius: 25px;
-    padding: 10px;
-    color:white;
-    background-color:#4db6ac;
-    border: black 2px solid;  
-}
 
+
+
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
 </style>
 <br />
 <br />
 <br />
 
 
- <h5 class="text-center">
+ <h3 class="text-center">
   Welcome : {{ user }}
-</h5>
+</h3>
+<hr>
+
+
 
 
 
@@ -37,19 +37,19 @@ h5{
   <div class="row">
     {% for a in qs %}
     <div class="col-sm-4">
-      <div class="card-deck">
-        <div
-          class="card mdb-color lighten-2 text-center z-depth-2 view overlay hm-white-slight"
-          style="width: 25rem;"
-        >
+        
+            <div class="card">
+                <div class="embed-responsive embed-responsive-16by9">
+      
+        
      
           <img
-            class="card-img-top in responsive-img"
+          alt="Card image cap" class="card-img-top embed-responsive-item"
             
             src="{{ a.image.url }}"
-            alt="Card image cap"
+            
           />
-
+                </div>
           <div class="card-body">
             <h4 class="card-title">
               <a>{{ a.name }} </a>
@@ -59,7 +59,10 @@ h5{
           <a href="{{ a.get_absolute_url }}" class="btn btn-primary"> Manage</a>
         </div>
       </div>
-    </div>
+    
+    
+    
+
     <br />
     <br /><br /><br />
     {% endfor %}
@@ -71,7 +74,7 @@ h5{
 <br />
 <hr />
 <h4>
-  Courses joined by you <a  href=" /courses/all"  class="btn-floating btn-large waves-effect waves-light teal lighten-2">JOIN OTHER COURSES</a></h>
+  Courses joined by you <a  href=" /courses/all"  class="btn-floating btn-large waves-effect waves-light teal lighten-2">JOIN OTHER COURSES</a></h4>
   
   
 
@@ -79,19 +82,18 @@ h5{
   <div class="container">
     <div class="row">
       {% for a1 in qs1 %}
-      <div class="col-sm-3">
-        <div class="card-deck">
-          <div
-            class="card mdb-color lighten-2 text-center z-depth-2 view overlay hm-white-slight"
-            style="width: 18rem;"
+      <div class="col-sm-4">
+        <div class="card">
+            <div class="embed-responsive embed-responsive-16by9">
+       
           >
-            <img
-              class="card-img-top"
-              img
+            <img alt="Card image cap"
+            class="card-img-top embed-responsive-item"
+            
               src="{{ a1.image.url }}"
-              alt="Card image cap"
+             
             />
-
+            </div>
             <div class="card-body">
               <h4 class="card-title">
                 <a> {{ a1.name }} </a>
@@ -103,7 +105,7 @@ h5{
             <a href="{{ a1.get_absolute_url }}" class="btn btn-primary"> View</a>
           </div>
         </div>
-      </div>
+      
       {% endfor %}
     </div>
   </div>
@@ -111,4 +113,4 @@ h5{
   <br />
   <hr />
   {% endblock %}
-</h1>
+
