@@ -7,6 +7,7 @@ from django.contrib.auth.models import Permission, User
 from .models import Announcement, comment
 
 
+
 def detail(request, pk):
     obj = get_object_or_404(Announcement, pk=pk)
     ar = comment.objects.all().filter(Announcement=obj)

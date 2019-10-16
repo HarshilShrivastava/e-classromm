@@ -10,7 +10,7 @@ class courseName(models.Model):
         User, related_name="owner", on_delete=models.CASCADE)
     joined_by = models.ForeignKey(
         User, null=True, blank=True, on_delete=models.CASCADE, related_name="joined")
-    image = models.ImageField(blank=True, null=True, upload_to='courses/')
+    image = models.ImageField(blank=True, null=True, upload_to='courses/',default="/default/courses.jpeg")
     created_At = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):

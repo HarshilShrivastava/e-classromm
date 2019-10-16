@@ -25,8 +25,11 @@ class Announcement(models.Model):
     def delete_url(self):
         return "/Announcement/delete/%s" % (self.id)
 
+    def update_url(self):
+        return "/courses/update/%s" % (self.id)
     def redirect(self):
         return "/courses/view/%s" % (self.courseName.name)
+
 
 
 class comment(models.Model):

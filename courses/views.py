@@ -21,8 +21,8 @@ def create(request):
 
 @login_required
 def update(request, pk):
-    obj = get_object_or_404(Announcement, pk=pk)
-    form = AnnouncementForm(request.POST, instance=obj)
+    instance = get_object_or_404(Announcement, pk=pk)
+    form = AnnouncementForm(request.POST or None,request.FILES or None, instance=instance)
     obj1 = get_object_or_404(Announcement, pk=pk)
     a = obj1.courseName.name
 
@@ -30,13 +30,12 @@ def update(request, pk):
 
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.User = request.user
-            instance.courseName = a
-            form.save()
-            return HttpResponseRedirect("/courses/view"+a)
+            
+            instance.save()
+            return HttpResponseRedirect("/courses/view/"+a)
         else:
             form = AnnouncementForm()
-    return render(request, 'Announcement.html', {"form": form, "a": a})
+    return render(request, 'Announcement.html', {"form": form, "a": a,"instance":instance})
 
 @login_required
 def createannouncement(request, courseNam):
