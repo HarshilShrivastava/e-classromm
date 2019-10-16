@@ -10,11 +10,9 @@
     <div class="col-10 col-md-8 col-lg-6">
       <h1>{{ a.name }}</h1>
       <br />
-      {% if a.image.is_empty %}
-      <p>No image</p>
-      {% else %}
+
       <img class="img-thumbnail" src="{{ a.image.url }}" />
-      {% endif %}
+
       <a href="{{ a.join_url }}" class="btn btn-primary">join</a>
     </div>
   </div>

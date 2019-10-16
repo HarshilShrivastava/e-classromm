@@ -21,6 +21,9 @@
         flex: initial; 
     }
 }
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
   
 </style>
 
@@ -69,13 +72,11 @@
 <div class="container">
   <div class="row">
     {% for a in qs%}
-    <div class="card-deck-wrapper">
-      <div class="card-deck">
-        <div class="col-sm-5">
-          <div
-            class="card mdb-color lighten-2 text-center z-depth-2 "
-            style="width: 18rem;"
-          >
+    <div class="col-sm-4">
+    <div class="card">
+        
+      
+      
             <div class="card-body">
               <h4 class="card-title">{{ a.title }}</h4>
               <br />
@@ -84,9 +85,10 @@
                 {{ a.content }} <br />
                 {{ a.at }}
               </p>
-
+              <div class="embed-responsive embed-responsive-16by9">
+              <img alt="Card image cap" src="{{a.image.url}}" class="card-img-top embed-responsive-item" />
               {{ a.User }}
-
+</div>
               <br />
               <a href="{{ a.get_absolute_url }}" class="btn btn-primary"
                 >View</a
@@ -99,8 +101,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      
+    
     {% endfor %}
   </div>
 </div>
